@@ -41,8 +41,8 @@ Cette image montre un écran de paramètres de profil. Il contient des champs po
 
 
 
+conclusion :
 
-                                 Conclusion : 
 En conclusion, Taxi Meter offre une solution pratique et fiable pour simuler le fonctionnement d'un compteur de taxi, tout en facilitant la gestion des informations personnelles des utilisateurs grâce à une interface simple et l'intégration de Firebase pour l'authentification et le stockage.
 
 
