@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+
+    <!-- Logout Button aligned to the left -->
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Logout"
+        android:elevation="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logout"
+        app:tint="#FFFFFF" />
+
+    <!-- Profile Button aligned to the right -->
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Profile"
+        android:elevation="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/us"
+        app:tint="#FFFFFF" />
+
+
+    <!-- Map View -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/logoutButton"
+        android:elevation="10dp"
+        android:clipToOutline="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Taxi Status Text -->
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taxi Status: Available"
+        android:textSize="18sp"
+        android:textColor="#FFEB3B"
+        android:layout_below="@id/mapView"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold" />
+
+    <!-- Time Text -->
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time: 0 min"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/statusTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Distance Text -->
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance: 0 km"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/timeTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Fare Text -->
+    <TextView
+        android:id="@+id/fareTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fare: 0 DH"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/distanceTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Start Ride Button -->
+    <Button
+        android:id="@+id/startRideButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="Start Ride"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button_yellow"
+        android:layout_below="@id/fareTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:elevation="10dp"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Ride History List -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:layout_below="@id/startRideButton"
+    android:layout_marginTop="10dp"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ListView
+        android:id="@+id/rideListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/rounded_border_yellow"
+    android:divider="@android:color/darker_gray"
+    android:dividerHeight="1dp"
+    android:elevation="4dp"
+    android:listSelector="@android:color/darker_gray"
+    android:padding="10dp" />
+</LinearLayout>
+    </ScrollView>
+
+    </RelativeLayout>

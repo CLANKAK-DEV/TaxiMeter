@@ -1,0 +1,21 @@
+<resources>
+    <!-- Primary color used throughout the app -->
+    <color name="colorPrimary">#FFD700</color> <!-- Yellow Taxi Color -->
+
+    <!-- Darker shade of the primary color, usually used in the action bar -->
+    <color name="colorPrimaryDark">#FFB900</color> <!-- Darker Yellow -->
+
+    <!-- Accent color for buttons, links, etc. -->
+    <color name="colorAccent">#007BFF</color> <!-- Blue Accent -->
+
+    <!-- Additional colors (optional) -->
+    <color name="colorBackground">#FFFFFF</color> <!-- White Background -->
+    <color name="colorText">#000000</color> <!-- Black Text -->
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="selector_color">#FFEB3B</color> <!-- Example: Yellow color -->
+    <color name="backgroundColor">#121212</color>
+    <color name="primaryTextColor">#FFFFFF</color>
+    <color name="hintTextColor">#BDBDBD</color>
+    <color name="iconColor">#FFFFFF</color>
+
+</resources>

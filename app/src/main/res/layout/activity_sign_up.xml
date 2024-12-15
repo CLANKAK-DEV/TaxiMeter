@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:padding="16dp">
+
+    <!-- Sign Up Title -->
+    <TextView
+        android:id="@+id/signUpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
+
+    <!-- Nom (Last Name) -->
+    <EditText
+        android:id="@+id/nomEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom"
+        android:layout_below="@id/signUpTitle"
+        android:layout_marginTop="40dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Nom input field" />
+
+    <!-- Prénom (First Name) -->
+    <EditText
+        android:id="@+id/prenomEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Prénom"
+        android:layout_below="@id/nomEditText"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Prénom input field" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/prenomEditText"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Email input field" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/signupPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Password input field" />
+
+    <!-- Confirm Password Input -->
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/signupPasswordEditText"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:background="@drawable/edit_text_border"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Confirm Password input field" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_below="@id/confirmPasswordEditText"
+        android:layout_marginTop="40dp"
+        android:padding="14dp"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Sign Up button" />
+</RelativeLayout>
