@@ -1,8 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@android:color/white"
     android:padding="16dp">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/taxi"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="40dp" />
 
     <!-- Login Title -->
     <TextView
@@ -12,16 +21,17 @@
         android:text="Taxi App Login"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp" />
+        android:layout_below="@id/logoImage"
+        android:layout_marginTop="20dp" />
 
     <!-- Username Input -->
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Email"
         android:layout_below="@id/loginTitle"
         android:layout_marginTop="40dp"
         android:padding="12dp"
@@ -54,7 +64,7 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@android:color/holo_orange_light"
         android:layout_below="@id/passwordEditText"
         android:layout_marginTop="40dp"
         android:padding="14dp"
@@ -73,7 +83,7 @@
         android:layout_below="@id/loginButton"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/holo_orange_dark"
         android:clickable="true"
         android:focusable="true"
         android:importantForAccessibility="yes"

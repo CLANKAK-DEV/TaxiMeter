@@ -1,23 +1,58 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
-    android:padding="16dp">
+    android:background="@android:color/white">
 
-    <!-- Back Icon -->
-    <ImageView
-        android:id="@+id/backIcon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/arrow"
-        android:contentDescription="Back"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:clickable="true"
-        android:focusable="true" />
+    <!-- Language Buttons -->
+    <LinearLayout
+        android:id="@+id/languageButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
 
-    <!-- Profile Title -->
+        <ImageButton
+            android:id="@+id/englishButton"
+            android:layout_width="57dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/usa" />
+
+        <ImageButton
+            android:id="@+id/frenchButton"
+            android:layout_width="57dp"
+            android:layout_height="30dp"
+            android:onClick="changeLanguage"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/france" />
+
+        <ImageButton
+            android:id="@+id/arabicButton"
+            android:layout_width="57dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/arab" />
+    </LinearLayout>
+
+    <!-- Logout Button -->
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="57dp"
+        android:layout_height="30dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Logout"
+        android:onClick="logoutUser"
+        android:scaleType="centerInside"
+        android:src="@drawable/logout" />
+
     <TextView
         android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
@@ -25,108 +60,168 @@
         android:text="Profile"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp" />
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/languageButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp" />
 
     <!-- Name Input -->
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:layout_below="@id/profileTitle"
-        android:layout_marginTop="40dp"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Name input field" />
+        app:layout_constraintTop_toBottomOf="@id/profileTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Prenom Input -->
     <EditText
         android:id="@+id/prenomEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Prenom"
-        android:layout_below="@id/nameEditText"
-        android:layout_marginTop="20dp"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Prenom input field" />
+        app:layout_constraintTop_toBottomOf="@id/nameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Email Input -->
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:layout_below="@id/prenomEditText"
-        android:layout_marginTop="20dp"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Email input field" />
+        app:layout_constraintTop_toBottomOf="@id/prenomEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Age Input -->
     <EditText
         android:id="@+id/ageEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Age"
-        android:layout_below="@id/emailEditText"
-        android:layout_marginTop="20dp"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Age input field" />
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
-    <!-- License Type Input -->
+    <!-- License Input -->
     <EditText
         android:id="@+id/licenseEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="License Type"
-        android:layout_below="@id/ageEditText"
-        android:layout_marginTop="20dp"
         android:padding="12dp"
         android:background="@drawable/edit_text_border"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="License Type input field" />
+        app:layout_constraintTop_toBottomOf="@id/ageEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 
     <!-- Save Button -->
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_orange_light"
         android:text="Save"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_below="@id/licenseEditText"
-        android:layout_marginTop="40dp"
-        android:padding="14dp"
-        android:textSize="16sp"
-        android:layout_centerHorizontal="true"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Save button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/licenseEditText" />
 
-    <!-- QR Code Image -->
+    <!-- QR Code Image View -->
     <ImageView
         android:id="@+id/qrCodeImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/saveButton"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:layout_width="190dp"
+        android:layout_height="180dp"
+        app:layout_constraintTop_toBottomOf="@id/saveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="578dp" />
+
+    <!-- Top Navigation Bar with Buttons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/qrCodeImageView"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="57dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Home"
+            android:scaleType="centerInside"
+            android:src="@drawable/home"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/historyButton"
+            android:layout_width="31dp"
+            android:layout_height="27dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/history"
+            android:scaleType="centerInside"
+            android:src="@drawable/history"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/profileButton"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/profileButton"
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/profile"
+            android:scaleType="centerInside"
+            android:src="@drawable/us"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

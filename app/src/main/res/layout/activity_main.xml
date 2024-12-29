@@ -1,146 +1,221 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:background="@android:color/transparent"
+    tools:context=".MainActivity">
 
-
-    <!-- Logout Button aligned to the left -->
-    <ImageButton
-        android:id="@+id/logoutButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Logout"
-        android:elevation="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/logout"
-        app:tint="#FFFFFF" />
-
-    <!-- Profile Button aligned to the right -->
-    <ImageButton
-        android:id="@+id/profileButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Profile"
-        android:elevation="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/us"
-        app:tint="#FFFFFF" />
-
-
-    <!-- Map View -->
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/logoutButton"
-        android:elevation="10dp"
-        android:clipToOutline="true"
-        android:layout_marginTop="10dp" />
-
-    <!-- Taxi Status Text -->
-    <TextView
-        android:id="@+id/statusTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Taxi Status: Available"
-        android:textSize="18sp"
-        android:textColor="#FFEB3B"
-        android:layout_below="@id/mapView"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:textStyle="bold" />
-
-    <!-- Time Text -->
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time: 0 min"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/statusTextView"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-medium" />
-
-    <!-- Distance Text -->
-    <TextView
-        android:id="@+id/distanceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Distance: 0 km"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/timeTextView"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-medium" />
-
-    <!-- Fare Text -->
-    <TextView
-        android:id="@+id/fareTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fare: 0 DH"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@id/distanceTextView"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-medium" />
-
-    <!-- Start Ride Button -->
-    <Button
-        android:id="@+id/startRideButton"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="Start Ride"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button_yellow"
-        android:layout_below="@id/fareTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:elevation="10dp"
-        android:textSize="18sp"
-        android:layout_marginBottom="20dp"/>
-
-    <!-- Ride History List -->
+    <!-- Scrollable Content (Removed as per your request to make Map full screen) -->
     <ScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-    android:layout_below="@id/startRideButton"
-    android:layout_marginTop="10dp"
-    android:padding="10dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <ListView
-        android:id="@+id/rideListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="20dp"
-    android:background="@drawable/rounded_border_yellow"
-    android:divider="@android:color/darker_gray"
-    android:dividerHeight="1dp"
-    android:elevation="4dp"
-    android:listSelector="@android:color/darker_gray"
-    android:padding="10dp" />
-</LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mapView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:background="@android:color/transparent">
+            <!-- Additional content can be added here -->
+        </LinearLayout>
     </ScrollView>
 
-    </RelativeLayout>
+    <!-- MapView (Now full screen) -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/topBar" />
+
+    <!-- Ride Info Section (Single Transparent Card with Slight White Background) -->
+    <!-- Ride Info Section (Single Transparent Card with Slight White Background) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rideInfoCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="8dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="#80FFFFFF"> <!-- Semi-transparent white background -->
+
+            <!-- Status Text -->
+            <TextView
+                android:id="@+id/statusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/taxi_status_available"
+                android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent" />
+
+            <!-- Time Text -->
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/time"
+                android:textColor="@color/colorBlack"
+            android:textSize="16sp"
+            android:background="@android:color/transparent" />
+
+            <!-- Distance Text -->
+            <TextView
+                android:id="@+id/distanceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:text="@string/distance"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+            <!-- Fare Text (Larger and More Prominent) -->
+            <TextView
+                android:id="@+id/fareTextView"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:text="@string/fare"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <!-- Buttons Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <!-- Start Ride Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/startRideButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_ride"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_start_ride"
+                    app:iconPadding="4dp"
+                    app:iconTint="@color/colorPrimary"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@android:color/transparent" />
+
+                <!-- Clear Map Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/clearButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/clear_map"
+                    android:textSize="14sp"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_clear_map"
+                    app:iconPadding="4dp"
+                    app:iconTint="@color/colorError"
+                    app:strokeColor="@color/colorError"
+                    app:strokeWidth="1dp"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Home Button (on the left) -->
+
+        <!-- History Button (in the middle) -->
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="57dp"
+            android:layout_height="30dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Home"
+            android:scaleType="centerInside"
+            android:src="@drawable/home"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/historyButton"
+            android:layout_width="31dp"
+            android:layout_height="27dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/history"
+            android:scaleType="centerInside"
+            android:src="@drawable/history"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/profileButton"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Profile Button (on the right) -->
+        <ImageButton
+            android:id="@+id/profileButton"
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/profile"
+            android:scaleType="centerInside"
+            android:src="@drawable/us"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
