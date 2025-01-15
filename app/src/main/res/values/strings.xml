@@ -19,6 +19,11 @@
     <string name="history">History</string>
     <string name="home">home</string>
 
-
+    <string name="already_in_profile">You are already in the Profile section.</string>
+    <string name="user_data_not_found">User data not found.</string>
+    <string name="error_fetching_user_data">Error fetching user data. Please try again later.</string>
+    <string name="profile_updated_successfully">Profile updated successfully!</string>
+    <string name="error_saving_user_data">Error saving user data. Please try again.</string>
+    <string name="error_generating_qr_code">Error generating QR code. Please try again.</string>
     <string name="item_ride_history">Ride History</string>
 </resources>

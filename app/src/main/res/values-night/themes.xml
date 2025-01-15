@@ -1,7 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.TaxiMeter" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Set window background color for dark mode -->
+        <item name="android:windowBackground">@color/darkBackground</item>
+    </style>
+
+    <style name="Theme.TaxiMeter.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Backgrounds -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColor">@color/primaryTextColor</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">false</item> <!-- Dark Status Bar Icons -->
     </style>
 </resources>
+
+
+
+
+

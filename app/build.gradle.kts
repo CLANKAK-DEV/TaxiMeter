@@ -79,6 +79,10 @@ dependencies {
     implementation ("com.google.zxing:core:3.4.1")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation ("pub.devrel:easypermissions:3.0.0")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+    implementation ("com.journeyapps:zxing-android-embedded:4.1.0")
+
+
 
 
     // Room compiler for annotation processing

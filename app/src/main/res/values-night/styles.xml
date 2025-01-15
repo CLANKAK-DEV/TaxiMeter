@@ -1,0 +1,7 @@
+
+
+<resources>
+<style name="AppTheme" parent="Theme.AppCompat.DayNight">
+    <item name="android:windowBackground">@color/darkBackground</item> <!-- Dark Mode Background Color -->
+</style>
+</resources>

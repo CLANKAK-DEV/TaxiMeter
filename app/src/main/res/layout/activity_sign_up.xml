@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:padding="16dp">
+
     <!-- Logo Image -->
     <ImageView
         android:id="@+id/logoImageView"
@@ -17,20 +18,20 @@
         android:id="@+id/signUpTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="TaxiFly"
         android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/logoImageView"
-    android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp" />
 
     <!-- Nom (Last Name) -->
     <EditText
         android:id="@+id/nomEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="name"
+        android:hint="Last Name"
         android:layout_below="@id/signUpTitle"
         android:layout_marginTop="40dp"
         android:padding="12dp"
@@ -38,14 +39,14 @@
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
         android:importantForAccessibility="yes"
-        android:contentDescription="Nom input field" />
+        android:contentDescription="Last Name input field" />
 
     <!-- Prénom (First Name) -->
     <EditText
         android:id="@+id/prenomEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="first name"
+        android:hint="First Name"
         android:layout_below="@id/nomEditText"
         android:layout_marginTop="20dp"
         android:padding="12dp"
@@ -53,7 +54,7 @@
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray"
         android:importantForAccessibility="yes"
-        android:contentDescription="Prénom input field" />
+        android:contentDescription="First Name input field" />
 
     <!-- Email Input -->
     <EditText
@@ -72,50 +73,101 @@
         android:contentDescription="Email input field" />
 
     <!-- Password Input -->
-    <EditText
-        android:id="@+id/signupPasswordEditText"
+    <RelativeLayout
+        android:id="@+id/passwordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:layout_below="@id/emailEditText"
-        android:layout_marginTop="20dp"
-        android:padding="12dp"
-        android:background="@drawable/edit_text_border"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Password input field" />
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/signupPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:importantForAccessibility="yes"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_border"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:contentDescription="Password input field" />
+
+        <ImageView
+            android:id="@+id/passwordVisibilityIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/invisible"
+            android:contentDescription="Password visibility toggle" />
+    </RelativeLayout>
 
     <!-- Confirm Password Input -->
-    <EditText
-        android:id="@+id/confirmPasswordEditText"
+    <RelativeLayout
+        android:id="@+id/confirmPasswordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:layout_below="@id/signupPasswordEditText"
-        android:layout_marginTop="20dp"
-        android:padding="12dp"
-        android:background="@drawable/edit_text_border"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:importantForAccessibility="yes"
-        android:contentDescription="Confirm Password input field" />
+        android:layout_below="@id/passwordLayout"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:importantForAccessibility="yes"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_border"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:contentDescription="Confirm Password input field" />
+
+        <ImageView
+            android:id="@+id/confirmPasswordVisibilityIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/invisible"
+            android:contentDescription="Confirm Password visibility toggle" />
+    </RelativeLayout>
 
     <!-- Sign Up Button -->
+
+    <!-- Link to Login Page -->
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/confirmPasswordLayout"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:contentDescription="Sign Up button"
+        android:importantForAccessibility="yes"
+        android:padding="14dp"
         android:text="Sign Up"
         android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/holo_orange_light"
-    android:layout_below="@id/confirmPasswordEditText"
-    android:layout_marginTop="40dp"
-    android:padding="14dp"
-    android:textSize="16sp"
-    android:layout_centerHorizontal="true"
-    android:importantForAccessibility="yes"
-    android:contentDescription="Sign Up button" />
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/returnToLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Log In"
+        android:textSize="14sp"
+        android:layout_below="@id/signUpButton"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_orange_dark"
+        android:clickable="true"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Link to login screen"
+        android:onClick="returnToLogin" />
+
 </RelativeLayout>

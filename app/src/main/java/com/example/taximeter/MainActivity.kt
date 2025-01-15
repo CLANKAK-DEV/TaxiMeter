@@ -1,43 +1,38 @@
 package com.example.taximeter
 
 import android.Manifest
-import android.app.AlertDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import pub.devrel.easypermissions.EasyPermissions
-import java.util.Locale
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -69,64 +64,64 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         // Initialize Firebase
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        findViewById<ImageButton>(R.id.historyButton).setOnClickListener {
-            // Navigate to the History activity
-            val intent = Intent(this, History::class.java)
-            startActivity(intent)
-        }
 
-        // Initialize MapView
+        // MapView setup
         mapView = findViewById(R.id.mapView)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
 
-        findViewById<Button>(R.id.startRideButton).setText(R.string.start_ride)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        // Ride control buttons
         findViewById<Button>(R.id.startRideButton).setOnClickListener {
             if (isRunning) stopRide() else startRide()
             updateRideButtonText()
         }
-
-        // Logout Button
-        findViewById<ImageButton>(R.id.homeButton).setOnClickListener {
-            // You can redirect to the main screen here if needed
-            startActivity(Intent(this, MainActivity::class.java)) // Replace with your home activity
-        }
-
-        // Profile Button
-        findViewById<ImageButton>(R.id.profileButton).setOnClickListener { navigateToProfile() }
-
-        // Clear Map Button
         findViewById<Button>(R.id.clearButton).setOnClickListener { clearMap() }
 
-        // Initialize location services
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        // Profile and history navigation
+        findViewById<ImageButton>(R.id.profileButton).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        findViewById<ImageButton>(R.id.historyButton).setOnClickListener {
+            startActivity(Intent(this, History::class.java))
+        }
 
-        // Fetch ride history
+        // Toggle ride info card visibility
+        val toggleButton: ImageButton = findViewById(R.id.toggleRideInfoButton)
+        val rideInfoCard: CardView = findViewById(R.id.rideInfoCard)
+        toggleButton.setOnClickListener {
+            if (rideInfoCard.visibility == View.GONE) {
+                rideInfoCard.visibility = View.VISIBLE
+                toggleButton.setImageResource(R.drawable.arrowdown)
+            } else {
+                rideInfoCard.visibility = View.GONE
+                toggleButton.setImageResource(R.drawable.arrowup)
+            }
+        }
 
         createNotificationChannel()
     }
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
-        if (EasyPermissions.hasPermissions(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            enableMyLocation()
-        } else {
-            EasyPermissions.requestPermissions(
-                this,
-                "We need access to your location to track the ride.",
-                LOCATION_PERMISSION_REQUEST_CODE,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            )
+        enableMyLocation()
+        googleMap.uiSettings.isMyLocationButtonEnabled = true
+        googleMap.setOnMyLocationButtonClickListener {
+            moveToCurrentLocation()
+            true
         }
     }
 
     private fun enableMyLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             googleMap.isMyLocationEnabled = true
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
+            )
         }
     }
 
@@ -138,60 +133,97 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         lastLocation = null
         traveledPath.clear()
 
-        startLocationUpdates()
-
         if (ActivityCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
         ) {
-            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                location?.let {
-                    val startLatLng = LatLng(it.latitude, it.longitude)
-                    traveledPath.add(startLatLng)
-                    googleMap.addMarker(
-                        MarkerOptions().position(startLatLng).title("Start Location")
-                    )
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLatLng, 15f))
-                }
+            return
+        }
+        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            location?.let {
+                val startLatLng = LatLng(it.latitude, it.longitude)
+                traveledPath.add(startLatLng)
+                googleMap.addMarker(MarkerOptions().position(startLatLng).title("Start Point"))
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(startLatLng, 15f))
             }
         }
-
-        findViewById<TextView>(R.id.timeTextView).text = "Time: 0 min"
+        startLocationUpdates()
     }
 
     private fun stopRide() {
+        Log.d("MainActivity", "stopRide() called") // Debug log
+
+        if (!isRunning) {
+            Log.d("MainActivity", "Ride is not running. Exiting stopRide().")
+            return
+        }
+
         isRunning = false
-        stopLocationUpdates()
 
-        lastLocation?.let {
-            val stopLatLng = LatLng(it.latitude, it.longitude)
-            googleMap.addMarker(MarkerOptions().position(stopLatLng).title("Stop Location"))
+        // Stop location updates safely
+        if (::locationCallback.isInitialized) {
+            try {
+                stopLocationUpdates()
+                Log.d("MainActivity", "Location updates stopped successfully.")
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error stopping location updates: ${e.message}")
+            }
         }
 
-        saveRideDetails {
+        try {
+            // Handle the last location and add the stop marker
+            if (lastLocation != null) {
+                val stopLatLng = LatLng(lastLocation!!.latitude, lastLocation!!.longitude)
+                googleMap.addMarker(MarkerOptions().position(stopLatLng).title("Stop Point"))
+                Log.d("MainActivity", "Stop marker added at: $stopLatLng")
 
+                // Only calculate bounds if there are points in the path
+                if (traveledPath.isNotEmpty()) {
+                    val bounds = LatLngBounds.Builder().apply {
+                        traveledPath.forEach { include(it) }
+                    }.build()
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100))
+                    Log.d("MainActivity", "Camera animated to bounds: $bounds")
+                } else {
+                    Log.w("MainActivity", "Traveled path is empty. Skipping bounds calculation.")
+                }
+            } else {
+                Log.w("MainActivity", "Last location is null. Stop marker not added.")
+                Toast.makeText(this, "Unable to fetch the last location", Toast.LENGTH_SHORT).show()
+            }
+
+            // Save the ride details
+            saveRideDetails()
+            Log.d("MainActivity", "Ride details saved successfully.")
+
+            // Show the notification
+            showStopRideNotification()
+            Log.d("MainActivity", "Stop ride notification displayed.")
+
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error during stopRide: ${e.message}")
+            e.printStackTrace()
         }
-        showStopRideNotification()
-
-        totalDistance = 0.0
-        currentFare = BASE_FARE
-        startTime = 0
-        lastLocation = null
-        traveledPath.clear()
     }
 
-    private fun updateRideButtonText() {
-        val button = findViewById<Button>(R.id.startRideButton)
-        button.text = if (isRunning) "Stop Ride" else "Start Ride"
+
+
+    private fun stopLocationUpdates() {
+        if (::locationCallback.isInitialized) {
+            fusedLocationClient.removeLocationUpdates(locationCallback)
+        }
     }
+
+
 
     private fun startLocationUpdates() {
-        val locationRequest = LocationRequest.create().apply {
-            interval = 5000  // Fetch updates every 5 seconds
-            fastestInterval = 3000  // Allow updates every 3 seconds
-            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        }
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
+            .setMinUpdateIntervalMillis(3000)
+            .build()
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
@@ -199,41 +231,27 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED
-        ) {
-            fusedLocationClient.requestLocationUpdates(
-                locationRequest,
-                locationCallback,
-                Looper.getMainLooper()
-            )
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
         }
     }
 
-    private fun stopLocationUpdates() {
-        fusedLocationClient.removeLocationUpdates(locationCallback)
-    }
+
 
     private fun updateFare(location: Location) {
-        if (lastLocation != null) {
-            val distance = lastLocation!!.distanceTo(location) / 1000
+        lastLocation?.let {
+            val distance = it.distanceTo(location) / 1000
             totalDistance += distance
             val elapsedMinutes = (System.currentTimeMillis() - startTime) / 60000
-            currentFare =
-                BASE_FARE + (totalDistance * FARE_PER_KM) + (elapsedMinutes * FARE_PER_MIN)
+            currentFare = BASE_FARE + (totalDistance * FARE_PER_KM) + (elapsedMinutes * FARE_PER_MIN)
 
-            findViewById<TextView>(R.id.distanceTextView).text = String.format("Distance: %.3f km", totalDistance)
+            findViewById<TextView>(R.id.distanceTextView).text = String.format("Distance: %.2f km", totalDistance)
             findViewById<TextView>(R.id.timeTextView).text = "Time: $elapsedMinutes min"
-            findViewById<TextView>(R.id.fareTextView).text = String.format("Fare: %.3f DH", currentFare)
+            findViewById<TextView>(R.id.fareTextView).text = String.format("Fare: %.2f DH", currentFare)
 
-            val currentLatLng = LatLng(location.latitude, location.longitude)
-            traveledPath.add(currentLatLng)
-            googleMap.addPolyline(
-                PolylineOptions()
-                    .addAll(traveledPath)
-                    .color(ContextCompat.getColor(this, R.color.teal_200))
-            )
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+            traveledPath.add(LatLng(location.latitude, location.longitude))
+            googleMap.addPolyline(PolylineOptions().addAll(traveledPath).color(ContextCompat.getColor(this, R.color.teal_200)))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 15f))
         }
         lastLocation = location
     }
@@ -242,85 +260,77 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.clear()
         totalDistance = 0.0
         currentFare = BASE_FARE
-        startTime = 0
-        lastLocation = null
         traveledPath.clear()
 
-        findViewById<TextView>(R.id.distanceTextView).text = String.format("Distance: %.3f km", 0.0)
+        findViewById<TextView>(R.id.distanceTextView).text = "Distance: 0.0 km"
         findViewById<TextView>(R.id.timeTextView).text = "Time: 0 min"
-        findViewById<TextView>(R.id.fareTextView).text = String.format("Fare: %.3f DH", 0.0)
+        findViewById<TextView>(R.id.fareTextView).text = "Fare: 0.0 DH"
     }
 
-    private fun saveRideDetails(onComplete: () -> Unit = {}) {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        if (userId != null) {
-            val elapsedMinutes = (System.currentTimeMillis() - startTime) / 60000
-            val rideData = hashMapOf(
-                "distance" to totalDistance,
-                "duration" to elapsedMinutes,
-                "fare" to currentFare,
-                "timestamp" to System.currentTimeMillis()
-            )
-            db.collection("drivers").document(userId).collection("rides")
-                .add(rideData)
-                .addOnSuccessListener {
-                    Log.d("RideData", "Ride saved successfully!")
-                    Toast.makeText(this, "Ride saved successfully!", Toast.LENGTH_SHORT).show()
-                    onComplete()
-                }
-                .addOnFailureListener { e ->
-                    Log.e("RideDataError", "Error saving ride: ${e.message}")
-                    Toast.makeText(this, "Error saving ride: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+    private fun saveRideDetails() {
+        val userId = auth.currentUser?.uid
+        if (userId.isNullOrEmpty()) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            return
+        }
 
+        val rideData = hashMapOf(
+            "distance" to totalDistance,
+            "fare" to currentFare,
+            "timestamp" to System.currentTimeMillis(),
+            "driverId" to userId
+        )
+
+        db.collection("drivers").document(userId).collection("rides").add(rideData)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Ride saved to history", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error saving ride: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun moveToCurrentLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                location?.let {
+                    val currentLatLng = LatLng(it.latitude, it.longitude)
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                }
+            }
         }
     }
 
-
-
-
-
-    private fun showStopRideNotification() {
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val intent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
-            this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-        val notification = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification)
-            .setContentTitle("Ride Stopped")
-            .setContentText(String.format("Fare: %.3f DH", currentFare))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            .build()
-
-        notificationManager.notify(NOTIFICATION_ID, notification)
+    private fun updateRideButtonText() {
+        findViewById<Button>(R.id.startRideButton).text = if (isRunning) "Stop Ride" else "Start Ride"
     }
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                NOTIFICATION_CHANNEL_ID,
-                "Ride Notifications",
-                NotificationManager.IMPORTANCE_DEFAULT
-            ).apply {
-                description = "Channel for ride notifications"
+            val name = "Ride Notifications"
+            val descriptionText = "Notifications for ride updates"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance).apply {
+                description = descriptionText
             }
-
-            val notificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
     }
 
-    private fun logoutUser() {
-        FirebaseAuth.getInstance().signOut()
-        finish()
-        startActivity(Intent(this, LoginActivity::class.java))
-    }
+    private fun showStopRideNotification() {
+        val stopIntent = Intent(this, MainActivity::class.java)
+        val stopPendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-    private fun navigateToProfile() {
-        startActivity(Intent(this, ProfileActivity::class.java))
+        val notification = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+            .setSmallIcon(R.drawable.notification)
+            .setContentTitle("Ride Completed")
+            .setContentText("Your ride has ended. Fare: $currentFare DH")
+            .setContentIntent(stopPendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .build()
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(NOTIFICATION_ID, notification)
     }
 }

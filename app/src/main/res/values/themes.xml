@@ -1,9 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.TaxiMeter" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
 
-    <style name="Theme.TaxiMeter" parent="Base.Theme.TaxiMeter" />
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Set window background color for light mode -->
+        <item name="android:windowBackground">@color/lightBackground</item>
+    </style>
+    <style name="Theme.TaxiMeter" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Backgrounds -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColor">@color/colorText</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- Light Status Bar Icons -->
+    </style>
 </resources>
+
