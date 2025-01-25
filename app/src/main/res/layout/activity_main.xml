@@ -23,7 +23,7 @@
         android:id="@+id/toggleRideInfoButton"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_margin="4dp"
+        android:layout_margin="5dp"
         android:src="@drawable/arrowup"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
@@ -157,14 +157,15 @@
             android:id="@+id/homeButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Home"
             android:scaleType="centerInside"
             android:src="@drawable/home"
             android:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- History Button -->
         <ImageButton
@@ -177,22 +178,25 @@
             android:src="@drawable/history"
             android:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileButton"
-            app:layout_constraintStart_toEndOf="@+id/homeButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/homeButton"
+            app:layout_constraintEnd_toStartOf="@id/profileButton"
+            app:layout_constraintHorizontal_bias="0.5" />
 
+        <!-- Profile Button -->
         <ImageButton
             android:id="@+id/profileButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginEnd="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Profile"
             android:scaleType="centerInside"
             android:src="@drawable/user"
             android:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- RecyclerView for dynamic ride info -->

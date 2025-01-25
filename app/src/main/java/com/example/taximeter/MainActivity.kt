@@ -1,4 +1,4 @@
-package com.example.taximeter
+package com.myapp.taximeter
 
 import android.Manifest
 import android.app.NotificationChannel

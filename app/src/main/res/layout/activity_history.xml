@@ -1,12 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    android:background="?android:attr/windowBackground"> <!-- Dynamic background based on theme -->
-    >
+    android:background="?android:attr/windowBackground">
 
     <!-- Title TextView -->
     <TextView
@@ -47,18 +45,17 @@
             android:id="@+id/homeButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Home"
             android:scaleType="centerInside"
             android:src="@drawable/home"
             android:tint="#FFFFFF"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- History Button -->
-
-        <!-- Profile Button -->
         <ImageButton
             android:id="@+id/historyButton"
             android:layout_width="30dp"
@@ -69,24 +66,25 @@
             android:src="@drawable/history"
             android:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileButton"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@+id/homeButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/homeButton"
+            app:layout_constraintEnd_toStartOf="@id/profileButton"
+            app:layout_constraintHorizontal_bias="0.5" />
 
+        <!-- Profile Button -->
         <ImageButton
             android:id="@+id/profileButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginEnd="24dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Profile"
             android:scaleType="centerInside"
-            android:src="@drawable/us"
+            android:src="@drawable/user"
             android:tint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.taximeter
+package com.myapp.taximeter
 
 import android.view.LayoutInflater
 import android.view.View

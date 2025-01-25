@@ -33,6 +33,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994381154869:android:d44a52ca12976fc373bf7c",
+        "android_client_info": {
+          "package_name": "com.myapp.taximeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994381154869-c2ufq7tigbsoisp7abutt3mavk7cgtlk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnuEzXtpNugKDXDr3xir1lOYDEhAfQHyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994381154869-c2ufq7tigbsoisp7abutt3mavk7cgtlk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

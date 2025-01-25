@@ -1,4 +1,4 @@
-package com.example.taximeter
+package com.myapp.taximeter
 
 
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.taximeter.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.myapp.taximeter.R
 
 class ForgotPasswordActivity : AppCompatActivity() {
 
