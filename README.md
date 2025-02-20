@@ -1,54 +1,84 @@
-🚖 **Taxi Meter **
+# **Taxiflay**
 
-Introduction :
+## **Project Description**
+Taxiflay is an Android application built with Kotlin that simulates a taxi meter. It calculates the fare in real-time based on distance traveled, trip duration, and other parameters, such as base fare, fare per kilometer, and fare per minute. The app includes features like real-time geolocation tracking, location access permission management, and displaying driver information.
 
-Taxi Meter est une application Android en Kotlin qui simule un compteur de taxi, calculant en temps réel la distance, le temps et le tarif de la course. Elle permet également l'inscription, la connexion, et l'affichage des informations personnelles des utilisateurs avec un QR code dynamique, utilisant Firebase pour l'authentification et le stockage des données.
+---
 
+## **Objectives & Features**
 
+### **Real-time Driver Location**
+- Displays the driver's current position on a **Google Maps** map, updating in real-time.
 
-![Picture1](https://github.com/user-attachments/assets/86dee0d3-fada-4d8e-ba9c-91fb06055628)
+### **Dynamic Fare Calculation**
+- The fare is dynamically calculated based on:
+  - **Base Fare**: A fixed price at the start of the trip.
+  - **Fare per Kilometer**: A price based on distance traveled (e.g., 1.5 DH/km).
+  - **Fare per Minute**: A price based on time spent (e.g., 0.5 DH/min).
 
+### **Notifications**
+- Sends a notification at the end of the trip with:
+  - Distance traveled
+  - Time elapsed
+  - Total fare
 
-Explication : 
+### **Permissions Management**
+- Requests **location access** at runtime using the **EasyPermissions** library for simplified permission handling.
 
-L'image montre un écran de connexion à l'application Taxi avec un arrière-plan dégradé noir à jaune. Il comporte des champs de saisie pour « Nom d'utilisateur » et « Mot de passe », un bouton bleu « Connexion » et un lien « Inscription » pour les nouveaux utilisateurs.
+### **User Interface**
+- The main interface includes:
+  - A **TextView** displaying the distance traveled.
+  - A **TextView** displaying the time elapsed.
+  - A **TextView** displaying the total fare.
+  - A **Button** to start the trip.
+  - A **Google Maps** map to show the driver's position in real-time.
 
-![Picture2](https://github.com/user-attachments/assets/fe4b788d-485c-471f-b264-a01e854e0a4d)
+### **Distance & Time Calculation**
+- Uses **FusedLocationProviderClient** to calculate distance and time in real-time.
 
+---
 
-Explication : 
+## **Pages**
 
-L'image montre un écran d'inscription avec un arrière-plan dégradé noir-jaune. Il comprend des champs pour « Nom », « Prénom », « E-mail », « Mot de passe » et « Confirmer le mot de passe », ainsi qu'un bouton bleu « S'inscrire » en bas.
+### **Login Page**
+The login page allows users to sign in to their accounts easily.
 
+#### Overview
+![Login Page](https://github.com/user-attachments/assets/defb1589-a58b-4496-a5e8-9503dab8596b)
 
+### **Signup Page**
+The signup page provides users with a smooth and user-friendly registration experience.
 
-![Picture3](https://github.com/user-attachments/assets/9475c4b1-74df-4320-928c-4bc6f5bf4b7c)
+#### Overview
+![Signup Page](https://github.com/user-attachments/assets/b401bfbd-08c1-4c7a-9f78-01d3ab4ea830)
 
+### **Home**
+The home page shows the taxi app interface. The taxi status is 'Available,' with a distance of 0 km, a duration of 0 minutes, and a fare of 0 DH. The 'Stop Trip' button is visible to end the trip. A base fare of 2.5 DH is displayed at the bottom.
 
+#### Overview
+![Home Page](https://github.com/user-attachments/assets/7c9f40c3-28fb-444c-a404-143f401db010)
 
-Explication : 
-L'image montre une interface d'application de taxi. Le statut du taxi est Disponible, avec une distance de 0 km, une durée de 0 min et un tarif de 0 DH enregistré. Le bouton « Arrêter le trajet » s'affiche, susceptible de mettre fin au trajet. Un tarif de base de 2,5 DH est indiqué en bas.
+### **Profile**
+The profile page allows users to update their personal information, including name, email, age, and license type. Changes can be saved with the 'Save' button, and a QR code is displayed at the bottom.
 
+#### Overview
+![Profile Page](https://github.com/user-attachments/assets/a649e603-4850-44a9-b9c0-9eb050c8890b)
 
-![Picture4](https://github.com/user-attachments/assets/25f2f9d9-85a0-471f-ade7-a25e641106d9)
+### **History**
+The history page displays a list of previous trips, including details like the trip date, distance, duration, and fare.
 
+#### Overview
+![History Page](https://github.com/user-attachments/assets/f07d416a-6980-4beb-8302-e6121d8a0d2d)
 
+---
 
-Explication : 
-Cette image montre un écran de paramètres de profil. Il contient des champs pour le nom de l'utilisateur, son adresse e-mail, son âge et un autre type de licence. Il y a un bouton Enregistrer pour enregistrer les modifications et un code QR affiché en bas.
+## **Technologies Used**
+- **Kotlin**: The programming language used for Android development.
+- **Google Maps API**: To display real-time driver location on the map.
+- **FusedLocationProviderClient**: For accurate location tracking and distance calculation.
+- **EasyPermissions**: To handle location permissions in a simplified way.
 
+---
 
-
-
-
-conclusion :
-
-En conclusion, Taxi Meter offre une solution pratique et fiable pour simuler le fonctionnement d'un compteur de taxi, tout en facilitant la gestion des informations personnelles des utilisateurs grâce à une interface simple et l'intégration de Firebase pour l'authentification et le stockage.
-
-
-
-
-
-
-
-
+## **Installation**
+https://play.google.com/store/apps/details?id=com.myapp.taximeter&pcampaignid=web_share
