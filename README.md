@@ -44,31 +44,31 @@ Taxiflay is an Android application built with Kotlin that simulates a taxi meter
 The login page allows users to sign in to their accounts easily.
 
 #### Overview
-![Login Page](https://github.com/user-attachments/assets/defb1589-a58b-4496-a5e8-9503dab8596b)
+<img src="https://github.com/user-attachments/assets/defb1589-a58b-4496-a5e8-9503dab8596b" width="200"/>
 
 ### **Signup Page**
 The signup page provides users with a smooth and user-friendly registration experience.
 
 #### Overview
-![Signup Page](https://github.com/user-attachments/assets/b401bfbd-08c1-4c7a-9f78-01d3ab4ea830)
+<img src="https://github.com/user-attachments/assets/b401bfbd-08c1-4c7a-9f78-01d3ab4ea830" width="200"/>
 
 ### **Home**
 The home page shows the taxi app interface. The taxi status is 'Available,' with a distance of 0 km, a duration of 0 minutes, and a fare of 0 DH. The 'Stop Trip' button is visible to end the trip. A base fare of 2.5 DH is displayed at the bottom.
 
 #### Overview
-![Home Page](https://github.com/user-attachments/assets/7c9f40c3-28fb-444c-a404-143f401db010)
+<img src="https://github.com/user-attachments/assets/7c9f40c3-28fb-444c-a404-143f401db010" width="200"/>
 
 ### **Profile**
 The profile page allows users to update their personal information, including name, email, age, and license type. Changes can be saved with the 'Save' button, and a QR code is displayed at the bottom.
 
 #### Overview
-![Profile Page](https://github.com/user-attachments/assets/a649e603-4850-44a9-b9c0-9eb050c8890b)
+<img src="https://github.com/user-attachments/assets/a649e603-4850-44a9-b9c0-9eb050c8890b" width="200"/>
 
 ### **History**
 The history page displays a list of previous trips, including details like the trip date, distance, duration, and fare.
 
 #### Overview
-![History Page](https://github.com/user-attachments/assets/f07d416a-6980-4beb-8302-e6121d8a0d2d)
+<img src="https://github.com/user-attachments/assets/f07d416a-6980-4beb-8302-e6121d8a0d2d" width="200"/>
 
 ---
 
@@ -81,4 +81,6 @@ The history page displays a list of previous trips, including details like the t
 ---
 
 ## **Installation**
-https://play.google.com/store/apps/details?id=com.myapp.taximeter&pcampaignid=web_share
+To install the Taxiflay app, you can download it directly from the Google Play Store:
+
+[Download Taxiflay on Google Play](https://play.google.com/store/apps/details?id=com.myapp.taximeter&pcampaignid=web_share)
