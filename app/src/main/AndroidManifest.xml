@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapp.taximeter">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <!-- Permissions -->
@@ -10,6 +12,8 @@
     <uses-permission
         android:name="android.permission.POST_NOTIFICATIONS"
         android:required="false" />
+
+
 
     <application
         android:allowBackup="true"
@@ -25,20 +29,19 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2615779396386471~1844301764"/>
         <!-- Activities -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" android:exported="false" />
-        <activity android:name=".ForgotPasswordActivity" android:exported="false" />
-        <activity android:name=".History" android:exported="false" />
-        <activity android:name=".MainActivity" android:exported="true" />
-        <activity android:name=".ProfileActivity" android:exported="false" />
+<!--        <activity android:name=".SignUpActivity" android:exported="false" />-->
+<!--        <activity android:name=".ForgotPasswordActivity" android:exported="false" />-->
     </application>
 </manifest>

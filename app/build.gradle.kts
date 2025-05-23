@@ -13,8 +13,8 @@ android {
         applicationId = "com.myapp.taximeter"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "1.2"
+        versionCode = 16
+        versionName = "1.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,4 +81,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //admob
+    implementation("com.google.android.gms:play-services-ads:22.0.0")
+
 }
