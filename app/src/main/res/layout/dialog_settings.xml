@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@color/colorWhite">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/colorPrimary"
+                android:layout_marginEnd="12dp"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fare Settings"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+
+        </LinearLayout>
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configure your taxi meter rates and charges"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="2dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_color"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Base Fare Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Basic Charges"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Base Fare"
+            app:helperText="Initial charge when starting a trip"
+            app:helperTextTextColor="@color/text_secondary"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/baseFareEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Fare per KM"
+            app:helperText="Rate charged per kilometer traveled"
+            app:helperTextTextColor="@color/text_secondary"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/farePerKmEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Time-based Charges Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time-based Charges"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Fare per Minute"
+            app:helperText="Rate charged per minute during the trip"
+            app:helperTextTextColor="@color/text_secondary"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/farePerMinEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Waiting Time Rate"
+            app:helperText="Rate per minute when waiting for passenger"
+            app:helperTextTextColor="@color/text_secondary"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/waitingRateEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Special Charges Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Special Charges"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Night Surcharge (%)"
+            app:helperText="Additional percentage added during night hours"
+            app:helperTextTextColor="@color/text_secondary"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nightSurchargeEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Night Hours Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:padding="12dp"
+            android:background="@drawable/info_background">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_info"
+                android:tint="@color/colorAccent"
+                android:layout_marginEnd="10dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Night Hours: 22:00 - 06:00"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Night surcharge is automatically applied during these hours"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Example Calculation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💡 Example Calculation"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5km trip, 10 minutes = Base Fare + (5 × Per KM) + (10 × Per Minute)"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:fontFamily="monospace" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -13,8 +13,8 @@ android {
         applicationId = "com.myapp.taximeter"
         minSdk = 24
         targetSdk = 35
-        versionCode = 16
-        versionName = "1.7"
+        versionCode = 17
+        versionName = "1.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/colorWhite">
+
+    <!-- Header with icon -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_currency"
+            android:layout_marginEnd="12dp"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Currency"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:gravity="start" />
+
+    </LinearLayout>
+
+    <!-- Search hint text -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose your preferred currency for fare calculation"
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="2dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Currency RecyclerView with better styling -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/currencyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="320dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@color/colorPrimary"
+        android:fadeScrollbars="false"
+        android:clipToPadding="false"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
+    <!-- Footer info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="@drawable/info_background">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_info"
+            android:layout_marginEnd="8dp"
+            app:tint="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Currency will be applied to all future trips"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:lineSpacingExtra="1dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

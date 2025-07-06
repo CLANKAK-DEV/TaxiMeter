@@ -1,27 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary color used throughout the app -->
+
+    <!-- ==================== PRIMARY THEME COLORS ==================== -->
     <color name="colorPrimary">#FFD700</color> <!-- Yellow Taxi Color -->
     <color name="colorPrimaryDark">#FFB900</color> <!-- Darker Yellow -->
+    <color name="colorPrimaryVariant">#FFC107</color> <!-- Yellow Variant -->
     <color name="colorAccent">#007BFF</color> <!-- Blue Accent -->
 
-    <!-- Additional colors -->
-    <color name="colorBackground">#FFFFFF</color> <!-- White Background -->
-    <color name="colorText">#000000</color> <!-- Black Text -->
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="selector_color">#FFEB3B</color> <!-- Example: Yellow color -->
-    <color name="backgroundColor">#121212</color> <!-- Dark Mode Background -->
-    <color name="primaryTextColor">#FFFFFF</color> <!-- White Text -->
-    <color name="hintTextColor">#BDBDBD</color> <!-- Hint Text Color -->
-    <color name="iconColor">#FFFFFF</color> <!-- Icon Color -->
-    <color name="colorRed">#F44336</color> <!-- Bright Red -->
-    <color name="colorWhite">#FFFFFF</color> <!-- White for text -->
+    <!-- ==================== BASIC COLORS ==================== -->
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="transparent">#00000000</color>
 
-    <!-- Custom Colors -->
-    <color name="colorYellow">#FFC107</color> <!-- Bright Yellow -->
-    <color name="colorBlack">#000000</color> <!-- Black -->
-    <color name="colorError">#D32F2F</color> <!-- Dark Red -->
-    <!-- Light and Dark Background Colors -->
-    <color name="lightBackground">#FFFFFF</color> <!-- Light Mode Background Color -->
-    <color name="darkBackground">#121212</color> <!-- Dark Mode Background Color -->
-    <color name="colorPrimaryVariant">#3700B3</color> <!-- Variant of Primary -->
+    <!-- ==================== BACKGROUND COLORS ==================== -->
+    <color name="lightBackground">#FFFFFF</color> <!-- Light Mode Background -->
+    <color name="darkBackground">#121212</color> <!-- Dark Mode Background -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="status_bar_background">#F8F9FA</color>
+
+    <!-- ==================== TEXT COLORS ==================== -->
+    <color name="text_primary">#212121</color> <!-- Dark Gray -->
+    <color name="text_secondary">#757575</color> <!-- Medium Gray -->
+    <color name="text_hint">#9E9E9E</color> <!-- Light Gray -->
+    <color name="primaryTextColor">#FFFFFF</color> <!-- White Text for dark backgrounds -->
+    <color name="hintTextColor">#BDBDBD</color> <!-- Hint Text -->
+
+    <!-- ==================== STATUS INDICATOR COLORS ==================== -->
+    <color name="status_available">#4CAF50</color> <!-- Green -->
+    <color name="status_active">#2196F3</color> <!-- Blue -->
+    <color name="status_paused">#FF9800</color> <!-- Orange -->
+    <color name="status_waiting">#9C27B0</color> <!-- Purple -->
+
+    <!-- ==================== BUTTON COLORS ==================== -->
+    <color name="button_start">#4CAF50</color> <!-- Green -->
+    <color name="button_stop">#F44336</color> <!-- Red -->
+    <color name="button_secondary">#757575</color> <!-- Gray -->
+
+    <!-- ==================== SEMANTIC COLORS ==================== -->
+    <!-- Success Colors -->
+    <color name="colorSuccess">#4CAF50</color>
+    <color name="colorSuccessDark">#388E3C</color>
+
+    <!-- Error Colors -->
+    <color name="colorError">#F44336</color>
+    <color name="colorErrorDark">#D32F2F</color>
+    <color name="colorRed">#F44336</color> <!-- Alias for error -->
+
+    <!-- Warning Colors -->
+    <color name="colorWarning">#FF9800</color>
+    <color name="colorWarningDark">#F57C00</color>
+
+    <!-- ==================== FARE & DISPLAY COLORS ==================== -->
+    <color name="fare_primary">#FFD700</color> <!-- Use your primary yellow for fare -->
+    <color name="fare_secondary">#757575</color>
+
+    <!-- ==================== MAP & ROUTE COLORS ==================== -->
+    <color name="route_color">#007BFF</color> <!-- Use your accent blue -->
+    <color name="route_color_secondary">#FF5722</color>
+
+    <!-- ==================== UI UTILITY COLORS ==================== -->
+    <color name="divider_color">#E0E0E0</color>
+    <color name="shadow_color">#40000000</color>
+    <color name="fab_background">#007BFF</color> <!-- Use your accent color -->
+    <color name="iconColor">#FFFFFF</color>
+
+    <!-- ==================== DIALOG & INFO COLORS ==================== -->
+    <color name="info_background_color">#F0F8FF</color> <!-- Light blue background -->
+    <color name="info_border_color">#E3F2FD</color> <!-- Light blue border -->
+    <color name="example_background_color">#FFF8E1</color> <!-- Light yellow background -->
+    <color name="example_border_color">#FFE082</color> <!-- Yellow border -->
+
+    <!-- ==================== MATERIAL DESIGN COMPATIBILITY ==================== -->
+    <color name="teal_200">#03DAC5</color> <!-- Fixed: removed FF prefix -->
+    <color name="teal_700">#018786</color>
+
+    <!-- ==================== LEGACY/COMPATIBILITY COLORS ==================== -->
+    <!-- These maintain backward compatibility with existing code -->
+    <color name="colorBackground">#FFFFFF</color> <!-- Alias for lightBackground -->
+    <color name="colorText">#000000</color> <!-- Alias for colorBlack -->
+    <color name="backgroundColor">#121212</color> <!-- Alias for darkBackground -->
+    <color name="selector_color">#FFEB3B</color> <!-- Selection highlight -->
+    <color name="colorYellow">#FFC107</color> <!-- Alternative yellow -->
+
 </resources>
