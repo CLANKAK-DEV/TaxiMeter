@@ -43,3 +43,6 @@ TaxiFly aims to provide:
 ---
 
 ⚡ With **TaxiFly**, you’ll always know the cost of your ride before you arrive.
+
+## 📄 License  
+This project is licensed under the [MIT License](./LICENSE).  
