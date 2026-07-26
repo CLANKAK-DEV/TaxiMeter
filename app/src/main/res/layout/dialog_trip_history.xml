@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/space_xl"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_history"
+            app:tint="@color/on_brand"
+            android:layout_marginEnd="@dimen/space_md"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/trip_history_title"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:textColor="@color/on_brand" />
+    </LinearLayout>
+
+    <!-- Totals strip -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_lg"
+        android:paddingEnd="@dimen/space_lg"
+        android:paddingTop="@dimen/space_lg"
+        android:paddingBottom="@dimen/space_lg">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/historyTripsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.Metric"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/history_trips"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.MetricLabel"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="32dp"
+            android:background="@color/divider_color"
+            android:layout_gravity="center_vertical"
+            android:importantForAccessibility="no" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/historyTotalKm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.Metric"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/history_distance"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.MetricLabel"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="32dp"
+            android:background="@color/divider_color"
+            android:layout_gravity="center_vertical"
+            android:importantForAccessibility="no" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/historyTotalEarnings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.Metric"
+                android:textColor="@color/fare_primary"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/history_earnings"
+                android:textAppearance="@style/TextAppearance.TaxiMeter.MetricLabel"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        android:importantForAccessibility="no" />
+
+    <!-- Trip list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/historyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/space_xs"
+        android:paddingBottom="@dimen/space_xs" />
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/historyEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/space_3xl"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_history"
+            app:tint="@color/text_hint"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_empty_title"
+            android:textAppearance="@style/TextAppearance.TaxiMeter.Title"
+            android:layout_marginTop="@dimen/space_md" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history_empty_body"
+            android:textAppearance="@style/TextAppearance.TaxiMeter.Caption"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_xs" />
+    </LinearLayout>
+
+    <!-- Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/space_md">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearHistoryButton"
+            style="@style/Widget.TaxiMeter.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/touch_target"
+            android:text="@string/clear_all"
+            android:textColor="@color/colorError" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:importantForAccessibility="no" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exportCsvButton"
+            style="@style/Widget.TaxiMeter.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/touch_target"
+            android:text="@string/export_csv"
+            android:textColor="@color/colorAccent"
+            android:contentDescription="@string/cd_export_csv"
+            app:icon="@drawable/ic_share"
+            app:iconSize="16dp"
+            app:iconTint="@color/colorAccent"
+            app:iconPadding="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/closeHistoryButton"
+            style="@style/Widget.TaxiMeter.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/touch_target"
+            android:text="@string/close"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+
+</LinearLayout>

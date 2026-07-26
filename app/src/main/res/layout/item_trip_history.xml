@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/list_item_min_height"
+    android:paddingStart="@dimen/space_lg"
+    android:paddingEnd="@dimen/space_lg"
+    android:paddingTop="@dimen/space_md"
+    android:paddingBottom="@dimen/space_md"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Date + route meta -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tripDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 Jul, 14:32"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tripMeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.2 km · 12:30 · Morocco"
+            android:textSize="@dimen/text_caption"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <!-- Fare -->
+    <TextView
+        android:id="@+id/tripFare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="32.50 DH"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:fontFamily="monospace"
+        android:layout_marginStart="@dimen/space_md"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

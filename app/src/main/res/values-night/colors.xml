@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         TaxiMeter Design System — dark (night driving) overrides.
+         Elevated dark greys (no pure-black cards), desaturated brights,
+         7:1+ primary text contrast for night-shift legibility.
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- ─── Brand ─── -->
+    <color name="colorPrimary">#FFD54A</color>
+    <color name="colorPrimaryDark">#E6B800</color>
+    <color name="on_brand">#241A00</color>
+    <color name="brand_container">#4D3E00</color>
+    <color name="on_brand_container">#FFEFB8</color>
+    <color name="colorAccent">#8AB4F8</color>
+
+    <!-- ─── Neutrals / surfaces ─── -->
+    <color name="app_background">#121212</color>
+    <color name="surface">#1D1F23</color>
+    <color name="surface_elevated">#25282D</color>
+    <color name="on_surface">#F2F3F5</color>              <!-- 14.9:1 on surface -->
+    <color name="on_surface_variant">#A9B0B8</color>      <!-- 7.0:1 on surface -->
+    <color name="outline">#34383E</color>
+    <color name="scrim">#B3000000</color>
+
+    <!-- ─── Backgrounds (legacy names) ─── -->
+    <color name="lightBackground">#121212</color>
+    <color name="card_background">#1D1F23</color>
+    <color name="status_bar_background">#121212</color>
+
+    <!-- ─── Text (legacy names) ─── -->
+    <color name="text_primary">#F2F3F5</color>
+    <color name="text_secondary">#A9B0B8</color>
+    <color name="text_hint">#7B828A</color>
+    <color name="hintTextColor">#7B828A</color>
+
+    <!-- ─── Fare display ─── -->
+    <color name="fare_display">#FFD54A</color>            <!-- Yellow readout glows at night -->
+    <color name="fare_primary">#FFD54A</color>
+    <color name="fare_secondary">#A9B0B8</color>
+
+    <!-- ─── Ride status ─── -->
+    <color name="status_available">#57C97C</color>
+    <color name="status_active">#8AB4F8</color>
+    <color name="status_paused">#FFB74D</color>
+    <color name="status_waiting">#CE93D8</color>
+
+    <!-- ─── Actions ─── -->
+    <color name="button_start">#2E9E52</color>
+    <color name="button_stop">#E5473C</color>
+    <color name="button_secondary">#A9B0B8</color>
+
+    <!-- ─── Semantic ─── -->
+    <color name="colorSuccess">#57C97C</color>
+    <color name="colorError">#FF6B5E</color>
+    <color name="colorRed">#FF6B5E</color>
+    <color name="colorWarning">#FFB74D</color>
+
+    <!-- ─── Map & route ─── -->
+    <color name="route_color">#8AB4F8</color>
+    <color name="route_color_secondary">#FFB74D</color>
+
+    <!-- ─── UI utility ─── -->
+    <color name="divider_color">#34383E</color>
+    <color name="fab_background">#8AB4F8</color>
+
+    <!-- ─── Dialog & info ─── -->
+    <color name="info_background_color">#1B2735</color>
+    <color name="info_border_color">#2C3E55</color>
+    <color name="example_background_color">#332B00</color>
+    <color name="example_border_color">#665600</color>
+    <color name="chip_yellow_bg">#332B00</color>
+    <color name="chip_yellow_border">#8A7400</color>
+    <color name="chip_yellow_text">#FFE082</color>
+
+    <!-- ─── Legacy aliases ─── -->
+    <color name="colorBackground">#121212</color>
+    <color name="colorText">#F2F3F5</color>
+
+</resources>

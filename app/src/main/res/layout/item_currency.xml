@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp"
+    android:paddingStart="@dimen/space_lg"
+    android:paddingEnd="@dimen/space_lg"
+    android:paddingTop="@dimen/space_md"
+    android:paddingBottom="@dimen/space_md"
     android:background="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
-    android:minHeight="64dp">
+    android:minHeight="@dimen/list_item_min_height">
 
-    <!-- Currency Flag -->
+    <!-- Flag -->
     <TextView
         android:id="@+id/currencyFlag"
-        android:layout_width="36dp"
-        android:layout_height="28dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:text="🇲🇦"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:gravity="center"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/flag_background" />
+        android:layout_marginEnd="@dimen/space_lg"
+        android:background="@drawable/flag_background"
+        android:importantForAccessibility="no"
+        tools:ignore="HardcodedText" />
 
-    <!-- Currency Info -->
+    <!-- Name + code -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -30,36 +36,43 @@
             android:id="@+id/currencyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Moroccan Dirham"
-            android:textSize="16sp"
+            android:text="Morocco"
+            android:textSize="15sp"
             android:textColor="@color/text_primary"
             android:textStyle="bold"
             android:maxLines="1"
-            android:ellipsize="end" />
+            android:ellipsize="end"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/currencyCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MAD"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_caption"
             android:textColor="@color/text_secondary"
-            android:layout_marginTop="2dp"
-            android:fontFamily="monospace" />
+            android:layout_marginTop="1dp"
+            android:fontFamily="monospace"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
-    <!-- Currency Symbol -->
+    <!-- Rate chip -->
     <TextView
         android:id="@+id/currencySymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DH"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        android:textColor="@color/chip_yellow_text"
         android:textStyle="bold"
-        android:layout_marginStart="12dp"
-        android:minWidth="32dp"
+        android:layout_marginStart="@dimen/space_sm"
         android:gravity="center"
-        android:fontFamily="monospace" />
+        android:background="@drawable/rounded_border_yellow"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:fontFamily="monospace"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

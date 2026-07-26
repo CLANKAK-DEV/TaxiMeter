@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
+    android:paddingTop="@dimen/space_md"
+    android:paddingBottom="@dimen/space_md"
+    android:paddingStart="@dimen/space_xs"
+    android:paddingEnd="@dimen/space_xs"
     android:gravity="center_vertical">
 
     <TextView
@@ -13,7 +17,17 @@
         android:layout_weight="1"
         android:text="Label"
         android:textColor="@color/text_secondary"
-        android:textSize="14sp" />
+        android:textSize="@dimen/text_body"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="@color/divider_color"
+        android:layout_marginStart="@dimen/space_sm"
+        android:layout_marginEnd="@dimen/space_sm"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/valueText"
@@ -21,8 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Value"
         android:textColor="@color/text_primary"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:gravity="end" />
+        android:fontFamily="monospace"
+        android:gravity="end"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

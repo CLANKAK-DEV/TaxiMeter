@@ -1,28 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Legacy theme kept for compatibility -->
     <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Set window background color for dark mode -->
         <item name="android:windowBackground">@color/darkBackground</item>
     </style>
 
-    <style name="Theme.TaxiMeter.Dark" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary Colors -->
+    <!-- ═══ Main app theme (dark / night driving) ═══
+         Color resources already resolve to their values-night variants;
+         this override only flips system-bar icon tinting. -->
+    <style name="Theme.TaxiMeter" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/on_brand</item>
+        <item name="colorPrimaryContainer">@color/brand_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_brand_container</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <!-- Backgrounds -->
-        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="colorSecondary">@color/on_surface_variant</item>
+        <item name="colorOnSecondary">@color/colorBlack</item>
+        <item name="colorTertiary">@color/colorAccent</item>
 
-        <!-- Text Colors -->
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:colorBackground">@color/app_background</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorOnBackground">@color/on_surface</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/divider_color</item>
 
-        <!-- Status Bar -->
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:windowLightStatusBar">false</item> <!-- Dark Status Bar Icons -->
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorBlack</item>
+
+        <item name="android:statusBarColor">@color/status_bar_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+
+        <item name="materialButtonStyle">@style/Widget.TaxiMeter.Button</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.TaxiMeter.Dialog</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.TaxiMeter.AlertDialog</item>
     </style>
+
 </resources>
-
-
-
-
-

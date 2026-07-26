@@ -26,4 +26,127 @@
     <string name="error_saving_user_data">Error saving user data. Please try again.</string>
     <string name="error_generating_qr_code">Error generating QR code. Please try again.</string>
     <string name="item_ride_history">Ride History</string>
+
+    <!-- ═══ Ride states ═══ -->
+    <string name="status_available">Available</string>
+    <string name="status_on_trip">On Trip</string>
+    <string name="status_paused">Paused</string>
+    <string name="label_status">Status</string>
+    <string name="label_time">Time</string>
+    <string name="label_km">km</string>
+    <string name="label_speed">km/h</string>
+    <string name="label_total_fare">Total fare</string>
+
+    <!-- ═══ Actions ═══ -->
+    <string name="pause_ride">Pause ride</string>
+    <string name="resume_ride">Resume ride</string>
+    <string name="reset_trip">Reset trip</string>
+    <string name="currency">Currency</string>
+    <string name="tariff_settings">Tariff</string>
+    <string name="share">Share</string>
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="clear_all">Clear all</string>
+
+    <!-- ═══ Map ═══ -->
+    <string name="tap_map_pickup">Tap the map to set the pickup point</string>
+    <string name="tap_map_destination">Tap the map to set the destination</string>
+    <string name="tap_map_toast">Tap on the map to place the pin</string>
+    <string name="pickup">Pickup</string>
+    <string name="destination">Destination</string>
+    <string name="route_estimate_format">~%1$s km · estimated %2$s%3$s</string>
+
+    <!-- ═══ Trip summary ═══ -->
+    <string name="trip_summary">Trip Summary</string>
+    <string name="summary_fare">Fare</string>
+    <string name="summary_distance">Distance</string>
+    <string name="summary_time">Time</string>
+    <string name="summary_avg_speed">Avg speed</string>
+    <string name="share_trip_template">Trip receipt — %1$s\nFare: %2$s\nDistance: %3$s km\nDuration: %4$s\nShared from TaxiMeter</string>
+    <string name="nothing_to_share">No completed trip to share yet</string>
+
+    <!-- ═══ Trip history ═══ -->
+    <string name="trip_history_title">Trip History</string>
+    <string name="history_empty_title">No trips yet</string>
+    <string name="history_empty_body">Completed rides will appear here automatically.</string>
+    <string name="history_trips">Trips</string>
+    <string name="history_distance">Total km</string>
+    <string name="history_earnings">Earnings</string>
+    <string name="clear_history_confirm_title">Clear trip history?</string>
+    <string name="clear_history_confirm_body">This permanently deletes all saved trips on this device.</string>
+    <string name="history_mixed_currencies">—</string>
+
+    <!-- ═══ Country / rates ═══ -->
+    <string name="select_country">Select Country</string>
+    <string name="select_country_subtitle">Fare rates and currency are applied automatically</string>
+    <string name="search_country_hint">Search country or currency</string>
+    <string name="country_picker_footer">Tap a country to auto-set fare rates and currency</string>
+
+    <!-- ═══ Tariff editor ═══ -->
+    <string name="fare_settings">Fare Settings</string>
+    <string name="fare_settings_subtitle">Adjust your local meter tariff. Values apply to this country and vehicle type.</string>
+    <string name="basic_charges">Basic charges</string>
+    <string name="time_based_charges">Time-based charges</string>
+    <string name="special_charges">Special charges</string>
+    <string name="base_fare">Base fare</string>
+    <string name="base_fare_helper">Initial charge when starting a trip</string>
+    <string name="fare_per_km">Fare per km</string>
+    <string name="fare_per_km_helper">Rate charged per kilometer traveled</string>
+    <string name="fare_per_minute">Fare per minute</string>
+    <string name="fare_per_minute_helper">Rate charged per minute during the trip</string>
+    <string name="waiting_rate">Waiting time rate</string>
+    <string name="waiting_rate_helper">Rate per minute while stopped or waiting</string>
+    <string name="night_surcharge">Night surcharge (%%)</string>
+    <string name="night_surcharge_helper">Extra percentage added between 22:00 and 06:00</string>
+    <string name="night_hours_title">Night hours: 22:00 – 06:00</string>
+    <string name="night_hours_body">The night surcharge is applied automatically during these hours</string>
+    <string name="tariff_saved">Tariff saved</string>
+    <string name="tariff_reset">Tariff reset to country default</string>
+    <string name="invalid_number">Enter a valid number</string>
+
+    <!-- ═══ Earnings dashboard ═══ -->
+    <string name="earnings_title">Earnings</string>
+    <string name="earnings_button">Earnings</string>
+    <string name="earnings_today">Today</string>
+    <string name="earnings_week">Last 7 days</string>
+    <string name="earnings_month">Last 30 days</string>
+    <string name="earnings_chart_caption">Daily earnings — last 7 days</string>
+    <string name="earnings_meta_format">%1$d trips · %2$s km</string>
+    <string name="earnings_empty_hint">Complete a ride to start tracking earnings.</string>
+
+    <!-- ═══ CSV export ═══ -->
+    <string name="export_csv">Export CSV</string>
+    <string name="csv_export_empty">No trips to export</string>
+    <string name="csv_saved_format">CSV saved to %1$s</string>
+
+    <!-- ═══ Trip-in-progress safeguard ═══ -->
+    <string name="discard_trip_title">Discard active trip?</string>
+    <string name="discard_trip_body">The meter is running. Resetting now discards the current fare, distance, and time without saving.</string>
+    <string name="discard">Discard</string>
+    <string name="exit_during_trip_title">Trip in progress</string>
+    <string name="exit_during_trip_body">The meter is still running. Leaving the app may interrupt GPS metering and lose the current fare.</string>
+    <string name="exit_anyway">Exit</string>
+    <string name="keep_screen_on">Screen on</string>
+    <string name="location_permission_needed">Location permission is required to meter distance and speed. Enable it in Settings to start a ride.</string>
+
+    <!-- ═══ Accessibility ═══ -->
+    <string name="cd_status_indicator">Ride status indicator</string>
+    <string name="cd_my_location">Center map on my location</string>
+    <string name="cd_trip_history">Open trip history</string>
+    <string name="cd_set_pickup">Set pickup point on map</string>
+    <string name="cd_set_destination">Set destination on map</string>
+    <string name="cd_country_flag">Select country and tariff</string>
+    <string name="cd_pause_resume">Pause or resume the ride</string>
+    <string name="cd_reset">Reset current trip</string>
+    <string name="cd_share_trip">Share trip receipt</string>
+    <string name="cd_close_summary">Close trip summary</string>
+    <string name="cd_fare_amount">Current fare amount</string>
+    <string name="cd_settings">Open tariff settings</string>
+    <string name="cd_earnings">Open earnings dashboard</string>
+    <string name="cd_export_csv">Export trip history as CSV</string>
+    <string name="cd_close_earnings">Close earnings dashboard</string>
+    <string name="cd_keep_screen_on">Keep the screen on while the meter is running</string>
+    <string name="cd_earnings_chart">Bar chart of daily earnings for the last seven days</string>
 </resources>

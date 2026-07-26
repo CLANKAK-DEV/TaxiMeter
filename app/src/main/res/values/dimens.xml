@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══ Spacing scale (4dp rhythm) ═══ -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">20dp</dimen>
+    <dimen name="space_2xl">24dp</dimen>
+    <dimen name="space_3xl">32dp</dimen>
+
+    <!-- ═══ Touch targets ═══ -->
+    <dimen name="touch_target">48dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_height_primary">64dp</dimen>
+    <dimen name="fab_size">48dp</dimen>
+    <dimen name="fab_icon_size">22dp</dimen>
+
+    <!-- ═══ Corner radii ═══ -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">16dp</dimen>
+    <dimen name="radius_lg">24dp</dimen>
+    <dimen name="radius_sheet">28dp</dimen>
+    <dimen name="radius_pill">32dp</dimen>
+
+    <!-- ═══ Type scale ═══ -->
+    <dimen name="text_fare_display">56sp</dimen>
+    <dimen name="text_metric">18sp</dimen>
+    <dimen name="text_metric_label">10sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+
+    <!-- ═══ Misc ═══ -->
+    <dimen name="status_dot_size">10dp</dimen>
+    <dimen name="list_item_min_height">64dp</dimen>
+
+    <!-- ═══ Earnings dashboard ═══ -->
+    <dimen name="earnings_chart_height">96dp</dimen>
+    <dimen name="earnings_bar_width">20dp</dimen>
+    <dimen name="earnings_bar_min_height">3dp</dimen>
+
+</resources>

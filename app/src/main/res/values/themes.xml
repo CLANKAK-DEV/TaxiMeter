@@ -1,24 +1,60 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Legacy theme kept for compatibility -->
     <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Set window background color for light mode -->
         <item name="android:windowBackground">@color/lightBackground</item>
     </style>
+
+    <!-- ═══ Main app theme (light) ═══ -->
     <style name="Theme.TaxiMeter" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary Colors -->
+        <!-- Brand -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/on_brand</item>
+        <item name="colorPrimaryContainer">@color/brand_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_brand_container</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <!-- Backgrounds -->
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <!-- Secondary / tertiary -->
+        <item name="colorSecondary">@color/on_surface_variant</item>
+        <item name="colorOnSecondary">@color/colorWhite</item>
+        <item name="colorTertiary">@color/colorAccent</item>
 
-        <!-- Text Colors -->
-        <item name="android:textColor">@color/colorText</item>
+        <!-- Surfaces -->
+        <item name="android:colorBackground">@color/app_background</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorOnBackground">@color/on_surface</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/divider_color</item>
 
-        <!-- Status Bar -->
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:windowLightStatusBar">true</item> <!-- Light Status Bar Icons -->
+        <!-- Semantic -->
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorWhite</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/status_bar_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+
+        <!-- Component defaults -->
+        <item name="materialButtonStyle">@style/Widget.TaxiMeter.Button</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.TaxiMeter.Dialog</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.TaxiMeter.AlertDialog</item>
     </style>
-</resources>
 
+    <!-- Dialog overlays: surface-colored, blue action buttons (brand yellow
+         text would fail contrast on light surfaces). -->
+    <style name="ThemeOverlay.TaxiMeter.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.TaxiMeter.AlertDialog" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+    </style>
+
+</resources>

@@ -1,17 +1,95 @@
 <resources>
+
+    <!-- Legacy styles kept for compatibility -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowBackground">@color/lightBackground</item> <!-- Light Mode Background Color -->
+        <item name="android:windowBackground">@color/lightBackground</item>
     </style>
-    <!-- Custom Button Style - Yellow -->
     <style name="CustomButtonYellow" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">@color/colorYellow</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
-
-    <!-- Custom Button Style - Red -->
     <style name="CustomButtonRed" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">@color/colorRed</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
-</resources>
 
+    <!-- ════════════════════════════════════════════════════════════════════
+         TaxiMeter Design System — typography
+         Roboto (system) for UI; monospace tabular figures for all live
+         meter numerals so digits never jitter as values tick.
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Fare readout: the single most glanceable element on screen -->
+    <style name="TextAppearance.TaxiMeter.FareDisplay" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">@dimen/text_fare_display</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/fare_display</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <!-- HUD metrics (time / km / speed) -->
+    <style name="TextAppearance.TaxiMeter.Metric" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">@dimen/text_metric</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Tiny uppercase labels above metrics -->
+    <style name="TextAppearance.TaxiMeter.MetricLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_metric_label</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.TaxiMeter.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.TaxiMeter.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.TaxiMeter.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         Components
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Filled action button: tall, pill-shaped, uppercase for glanceability -->
+    <style name="Widget.TaxiMeter.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+    </style>
+
+    <!-- Outlined secondary button -->
+    <style name="Widget.TaxiMeter.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">@color/outline</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Low-emphasis text button -->
+    <style name="Widget.TaxiMeter.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+</resources>

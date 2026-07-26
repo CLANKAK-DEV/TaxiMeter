@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_xl"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_country"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:textColor="@color/on_brand" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_country_subtitle"
+            android:textSize="@dimen/text_caption"
+            android:textColor="@color/on_brand"
+            android:alpha="0.8"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Search -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_lg"
+        android:layout_marginEnd="@dimen/space_lg"
+        android:layout_marginTop="@dimen/space_md"
+        android:layout_marginBottom="@dimen/space_sm"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:hintTextColor="@color/text_secondary"
+        android:hint="@string/search_country_hint">
+
+        <EditText
+            android:id="@+id/countrySearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:minHeight="@dimen/touch_target"
+            android:textSize="15sp"
+            android:textColor="@color/text_primary"
+            android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Country list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/space_xs"
+        android:paddingBottom="@dimen/space_xs" />
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/countryRateInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_md"
+        android:textSize="@dimen/text_caption"
+        android:textColor="@color/text_secondary"
+        android:text="@string/country_picker_footer"
+        android:gravity="center"
+        android:background="@drawable/info_background"
+        android:layout_margin="@dimen/space_md" />
+
+</LinearLayout>
